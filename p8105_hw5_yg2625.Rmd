@@ -1,0 +1,26 @@
+---
+title: "p8105_hw5_yg2625"
+author: "Yue Gu"
+date: "November 7, 2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Library
+```{r}
+library(tidyverse)
+library(rvest)
+library(purrr)
+```
+
+```{r}
+file_df = tibble(
+  list.files(path = "./data", pattern = "*.csv")
+  )
+names(file_df)[1] = "file_name"
+
+```
+
