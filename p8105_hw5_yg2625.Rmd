@@ -65,7 +65,7 @@ arm_tidy %>%
        y = "Observations")
 ```
 
-#### By spaghetti plot, we could observe that experimental arm group have relatively higher mean of observations than control arm group. And oberservations increases over time in experimental group while the observations in control group fluctuate around the original value without a clear increasing or decreasing pattern.
+By spaghetti plot, we could observe that experimental arm group have relatively higher mean of observations than control arm group. And oberservations increases over time in experimental group while the observations in control group fluctuate around the original value without a clear increasing or decreasing pattern.
 
 
 ## Problem 2
@@ -79,7 +79,8 @@ names(homi_raw)
 nrow(homi_raw)
 ncol(homi_raw)
 ```
-#### The raw data containing 52179 observations with 12 variables including subject id, case reported date, victim's last and first name, victim's race, age and sex, case happend city and state with latitude and longtitude, and disposition. And the Washington Post collected the data on criminal homicides over the past decade in 50 of the largest American cities.
+
+The raw data containing 52179 observations with 12 variables including subject id, case reported date, victim's last and first name, victim's race, age and sex, case happend city and state with latitude and longtitude, and disposition. And the Washington Post collected the data on criminal homicides over the past decade in 50 of the largest American cities.
 
 
 
@@ -94,7 +95,7 @@ homi_create =
 
 head(homi_create, 10)
 ```
-#### total_homi stands for the total number of homicides; homi_unsolved stands for the number of unsolved homicides
+*total_homi* stands for the total number of homicides; *homi_unsolved* stands for the number of unsolved homicides
 
 ### For the city of Baltimore, MD, use the prop.test function to estimate the proportion of homicides that are unsolved
 ```{r}
@@ -111,7 +112,7 @@ baltimore_prop %>%
   knitr::kable(digits = 3)
 ```
 
-#### Hence, the estimate proportion is 0.646 with confidence interval 95% (0.628, 0.663)
+Hence, the estimate proportion is 0.646 with confidence interval 95% (0.628, 0.663)
 
 ### Now run prop.test for each of the cities in your dataset, and extract both the proportion of unsolved homicides and the confidence interval for each
 ```{r}
@@ -137,7 +138,7 @@ homi_prop_test %>%
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-#### The cities in errorbar plot is reorganized according to the proportion of unsolved homicides. And since Tulsa, AL only has 1 homicide case, its errorbar is unique without large cases numbers compared to other cities. 
+The cities in errorbar plot is reorganized according to the proportion of unsolved homicides. And since Tulsa, AL only has 1 homicide case, its errorbar is unique without large cases numbers compared to other cities. 
 
 
 
