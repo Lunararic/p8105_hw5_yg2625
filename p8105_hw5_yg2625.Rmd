@@ -121,6 +121,22 @@ homi_prop_test =
 head(homi_prop_test, 10)
 ```
 
+### Create a plot that shows the estimates and CIs for each city 
+```{r}
+homi_prop_test %>% 
+  mutate(city_state = forcats::fct_reorder(city_state, estimate)) %>% 
+  ggplot(aes(x = city_state, y = estimate)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high)) +
+  labs(title = "Errorbar plot for the estimates and CIs in prop.test for each city",
+        x = "City, State",
+        y = "Unsolved Cases Proportion Estimate") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+#### The cities in errorbar plot is reorganized according to the proportion of unsolved homicides. And since Tulsa, AL only has 1 homicide case, its errorbar is unique without large cases numbers compared to other cities. 
+
+
 
 
 
