@@ -92,4 +92,9 @@ homi_create =
 head(homi_create, 10)
 ```
 
+### For the city of Baltimore, MD, use the prop.test function to estimate the proportion of homicides that are unsolved
+```{r}
+
+```
+
 
