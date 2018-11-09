@@ -73,11 +73,14 @@ arm_tidy %>%
 ### Import and describe the raw data
 ```{r}
 homi_raw = read_csv("https://raw.githubusercontent.com/washingtonpost/data-homicides/master/homicide-data.csv")
+head(homi_raw, 10)
+names(homi_raw)
 
 nrow(homi_raw)
 ncol(homi_raw)
 ```
 #### The raw data containing 52179 observations with 12 variables including subject id, case reported date, victim's last and first name, victim's race, age and sex, case happend city and state with latitude and longtitude, and disposition. And the Washington Post collected the data on criminal homicides over the past decade in 50 of the largest American cities.
+
 
 
 ###  Create a city_state variable (e.g. “Baltimore, MD”) and then summarize within cities to obtain the total number of homicides and the number of unsolved homicides
@@ -108,7 +111,7 @@ baltimore_prop %>%
   knitr::kable(digits = 3)
 ```
 
-#### Hence, the estimate proportion is 0.646 with confidence interval (0.628, 0.663)
+#### Hence, the estimate proportion is 0.646 with confidence interval 95% (0.628, 0.663)
 
 ### Now run prop.test for each of the cities in your dataset, and extract both the proportion of unsolved homicides and the confidence interval for each
 ```{r}
