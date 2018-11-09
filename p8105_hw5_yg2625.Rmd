@@ -27,7 +27,7 @@ names(file_df)[1] = "file_name"
 file_df
 ```
 
-### Iterate over file names and read in data
+### Iterate over file names and read in data to save the result as a new variable in the dataframe
 ```{r, message = F}
 arm_df = 
   file_df %>% 
@@ -39,7 +39,7 @@ arm_df
 
 ```
 
-### Tidy the resulting data
+### Tidy the resulting data and manipulate file names to include control arm and subject ID and furtherly gather the data and modified week column
 ```{r}
 arm_tidy =
   arm_df %>% 
@@ -64,7 +64,11 @@ arm_tidy %>%
        x = "Week",
        y = "Observations")
 ```
-### By
+
+#### By spaghetti plot, we could observe that experimental arm group have relatively higher mean of observations than control arm group. And oberservations increases over time in experimental group while the observations in control group fluctuate around the original value without a clear increasing or decreasing pattern.
+
+
+## Problem 2
 
 
 
