@@ -70,5 +70,26 @@ arm_tidy %>%
 
 ## Problem 2
 
+### Import and describe the raw data
+```{r}
+homi_raw = read_csv("https://raw.githubusercontent.com/washingtonpost/data-homicides/master/homicide-data.csv")
+
+nrow(homi_raw)
+ncol(homi_raw)
+```
+#### The raw data containing 52179 observations with 12 variables including subject id, case reported date, victim's last and first name, victim's race, age and sex, case happend city and state with latitude and longtitude, and disposition. And the Washington Post collected the data on criminal homicides over the past decade in 50 of the largest American cities.
+
+
+###  Create a city_state variable (e.g. “Baltimore, MD”) and then summarize within cities to obtain the total number of homicides and the number of unsolved homicides
+```{r}
+homi_create =
+  homi_raw %>% 
+  mutate(city_state = paste(city, state, sep = ", ")) %>% 
+  group_by(city_state) %>% 
+  summarize(homi_total = n(),
+            homi_unsoloved = sum(disposition == "Closed without arrest" | disposition == "Open/No arrest"))
+
+head(homi_create, 10)
+```
 
 
