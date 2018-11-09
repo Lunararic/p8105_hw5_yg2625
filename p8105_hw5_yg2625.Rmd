@@ -110,6 +110,16 @@ baltimore_prop %>%
 
 #### Hence, the estimate proportion is 0.646 with confidence interval (0.628, 0.663)
 
+### Now run prop.test for each of the cities in your dataset, and extract both the proportion of unsolved homicides and the confidence interval for each
+```{r}
+homi_prop_test =
+  homi_create %>% 
+  mutate(prop_test = map2(homi_total, homi_unsoloved, ~prop.test(.y, .x) %>% broom::tidy())) %>% 
+  unnest() %>% 
+  select(city_state, homi_total, homi_unsoloved, estimate, conf.low, conf.high)
+
+head(homi_prop_test, 10)
+```
 
 
 
