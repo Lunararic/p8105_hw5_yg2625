@@ -91,10 +91,27 @@ homi_create =
 
 head(homi_create, 10)
 ```
+#### total_homi stands for the total number of homicides; homi_unsolved stands for the number of unsolved homicides
 
 ### For the city of Baltimore, MD, use the prop.test function to estimate the proportion of homicides that are unsolved
 ```{r}
+baltimore_prop = prop.test(1825, 2827)
+baltimore_prop
 
 ```
+
+### Apply the  broom::tidy to this object and pull the estimated proportion and confidence intervals from the resulting tidy dataframe
+```{r}
+baltimore_prop %>% 
+  broom::tidy() %>% 
+  select(estimate, conf.low, conf.high) %>% 
+  knitr::kable(digits = 3)
+```
+
+#### Hence, the estimate proportion is 0.646 with confidence interval (0.628, 0.663)
+
+
+
+
 
 
