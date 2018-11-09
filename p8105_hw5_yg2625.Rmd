@@ -15,7 +15,8 @@ library(tidyverse)
 library(rvest)
 library(purrr)
 ```
-
+## Problem 1
+### Create dataframe containing all file names
 ```{r}
 file_df = tibble(
   list.files(path = "./data", pattern = "*.csv")
@@ -23,4 +24,21 @@ file_df = tibble(
 names(file_df)[1] = "file_name"
 
 ```
+
+### Iterate over file names and read in data
+```{r}
+arm_df = 
+  file_df %>% 
+  mutate(path = str_c("./data/", file_name)) %>% 
+  mutate(data = map(path, read_csv)) %>% 
+  unnest()
+
+```
+
+### Tidy the resulting data
+```{r}
+
+```
+
+
 
